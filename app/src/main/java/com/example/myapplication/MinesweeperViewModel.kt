@@ -21,9 +21,11 @@ class MinesweeperViewModel: ViewModel() {
 
     fun resetGame() {
         if(_uiState.value.gameMode == gameModes.Easy) {
+            var allretainedTimes: SnapshotStateList<Double?> = _uiState.value.newBestTimeEasy
             var retainedTime: Double? = null
             if(_uiState.value.bestTimeEasy != null) {
                 retainedTime = _uiState.value.bestTimeEasy
+                allretainedTimes.add(retainedTime)
             } else {
                 retainedTime = null
             }
@@ -36,7 +38,8 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Easy,
                 minesLeft = 10,
-                bestTimeEasy = retainedTime
+                bestTimeEasy = retainedTime,
+                newBestTimeEasy = allretainedTimes
             )
         } else if(_uiState.value.gameMode == gameModes.Medium) {
             _uiState.value = MinesweeperUiState(

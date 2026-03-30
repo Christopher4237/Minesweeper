@@ -6,8 +6,7 @@ import androidx.compose.runtime.snapshots.SnapshotStateList
 enum class gameModes {
     Easy,
     Medium,
-    Hard,
-    DEFAULT
+    Hard
 }
 
 data class MinesweeperUiState(
@@ -26,6 +25,6 @@ data class MinesweeperUiState(
     val won: Boolean? = null,
     val currentGameTimeInMillis: Double = 0.00,
     var gameMode: gameModes? = gameModes.Easy,
-    var bestTimeEasy: Double? = null
-
+    var bestTimeEasy: Double? = null,
+    var newBestTimeEasy: SnapshotStateList<Double?> = mutableStateListOf()
 )

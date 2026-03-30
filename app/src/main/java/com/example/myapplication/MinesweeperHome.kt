@@ -13,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
@@ -21,6 +22,7 @@ fun MinesweeperHome(
     navigateToMediumGame: () -> Unit,
     navigateToHardGame: () -> Unit,
     bestTimeEasy: Double?,
+    newBestTimeEasy: List<Double?>?,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -51,11 +53,16 @@ fun MinesweeperHome(
                     .weight(0.2f)
             )
             Text(
-                text = "Best time: $bestTimeEasy"
+                text = "Best time: $bestTimeEasy",
+                fontSize = 6.sp
             )
             Spacer(
                 modifier = Modifier
                     .weight(0.2f)
+            )
+            Text(
+                text = "Best time: " + newBestTimeEasy?.toList().toString(),
+                fontSize = 6.sp
             )
         }
         Spacer(
