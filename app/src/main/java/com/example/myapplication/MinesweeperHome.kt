@@ -23,6 +23,10 @@ fun MinesweeperHome(
     navigateToHardGame: () -> Unit,
     bestTimeEasy: Double?,
     newBestTimeEasy: List<Double?>?,
+    bestTimeMedium: Double?,
+    newBestTimeMedium: List<Double?>?,
+    bestTimeHard: Double?,
+    newBestTimeHard: List<Double?>?,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -69,22 +73,72 @@ fun MinesweeperHome(
             modifier = Modifier
                 .weight(0.1f)
         )
-        Button(
-            onClick = navigateToMediumGame
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
         ) {
+            Spacer(
+                modifier = Modifier
+                    .weight(0.4f)
+            )
+            Button(
+                onClick = navigateToHardGame
+            ) {
+                Text(
+                    text = "Medium"
+                )
+            }
+            Spacer(
+                modifier = Modifier
+                    .weight(0.2f)
+            )
             Text(
-                text = "Medium"
+                text = "Best time: $bestTimeMedium",
+                fontSize = 6.sp
+            )
+            Spacer(
+                modifier = Modifier
+                    .weight(0.2f)
+            )
+            Text(
+                text = "Best time: " + newBestTimeMedium?.toList().toString(),
+                fontSize = 6.sp
             )
         }
         Spacer(
             modifier = Modifier
                 .weight(0.1f)
         )
-        Button(
-            onClick = navigateToHardGame
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
         ) {
+            Spacer(
+                modifier = Modifier
+                    .weight(0.4f)
+            )
+            Button(
+                onClick = navigateToMediumGame
+            ) {
+                Text(
+                    text = "Medium"
+                )
+            }
+            Spacer(
+                modifier = Modifier
+                    .weight(0.2f)
+            )
             Text(
-                text = "Hard"
+                text = "Best time: $bestTimeHard",
+                fontSize = 6.sp
+            )
+            Spacer(
+                modifier = Modifier
+                    .weight(0.2f)
+            )
+            Text(
+                text = "Best time: " + newBestTimeHard?.toList().toString(),
+                fontSize = 6.sp
             )
         }
         Spacer(

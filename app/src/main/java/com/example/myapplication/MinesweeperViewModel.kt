@@ -21,13 +21,13 @@ class MinesweeperViewModel: ViewModel() {
 
     fun resetGame() {
         if(_uiState.value.gameMode == gameModes.Easy) {
-            var allretainedTimes: SnapshotStateList<Double?> = _uiState.value.newBestTimeEasy
-            var retainedTime: Double? = null
-            if(_uiState.value.bestTimeEasy != null) {
-                retainedTime = _uiState.value.bestTimeEasy
-                allretainedTimes.add(retainedTime)
+            var allretainedTimesEasy: SnapshotStateList<Double?> = _uiState.value.newBestTimeEasy
+            var retainedTimeEasy: Double? = null
+            if(_uiState.value.bestTimeEasy != null && _uiState.value.won == true) {
+                retainedTimeEasy = _uiState.value.bestTimeEasy
+                allretainedTimesEasy.add(retainedTimeEasy)
             } else {
-                retainedTime = null
+                retainedTimeEasy = null
             }
             _uiState.value = MinesweeperUiState(
                 columns = 8,
@@ -38,10 +38,18 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Easy,
                 minesLeft = 10,
-                bestTimeEasy = retainedTime,
-                newBestTimeEasy = allretainedTimes
+                bestTimeEasy = retainedTimeEasy,
+                newBestTimeEasy = allretainedTimesEasy
             )
         } else if(_uiState.value.gameMode == gameModes.Medium) {
+            var allretainedTimesMedium: SnapshotStateList<Double?> = _uiState.value.newBestTimeMedium
+            var retainedTimeMedium: Double? = null
+            if(_uiState.value.bestTimeMedium != null && _uiState.value.won == true) {
+                retainedTimeMedium = _uiState.value.bestTimeMedium
+                allretainedTimesMedium.add(retainedTimeMedium)
+            } else {
+                retainedTimeMedium = null
+            }
             _uiState.value = MinesweeperUiState(
                 columns = 16,
                 boardSize = 256,
@@ -50,9 +58,19 @@ class MinesweeperViewModel: ViewModel() {
                 won = null,
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Medium,
-                minesLeft = 40
+                minesLeft = 40,
+                bestTimeMedium = retainedTimeMedium,
+                newBestTimeMedium = allretainedTimesMedium
             )
         } else if(_uiState.value.gameMode == gameModes.Hard) {
+            var allretainedTimesHard: SnapshotStateList<Double?> = _uiState.value.newBestTimeHard
+            var retainedTimeHard: Double? = null
+            if(_uiState.value.bestTimeHard != null && _uiState.value.won == true) {
+                retainedTimeHard = _uiState.value.bestTimeHard
+                allretainedTimesHard.add(retainedTimeHard)
+            } else {
+                retainedTimeHard = null
+            }
             _uiState.value = MinesweeperUiState(
                 columns = 30,
                 boardSize = 480,
@@ -61,7 +79,9 @@ class MinesweeperViewModel: ViewModel() {
                 won = null,
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Hard,
-                minesLeft = 99
+                minesLeft = 99,
+                bestTimeHard = retainedTimeHard,
+                newBestTimeHard = allretainedTimesHard
             )
         }
 

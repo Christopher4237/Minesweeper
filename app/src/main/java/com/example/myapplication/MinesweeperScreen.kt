@@ -86,7 +86,11 @@ fun MinesweeperScreen(
                     navController.navigate(Screens.HardGame.name)
                 },
                 bestTimeEasy = minesweeperUiState.bestTimeEasy,
-                newBestTimeEasy = minesweeperUiState.newBestTimeEasy
+                newBestTimeEasy = minesweeperUiState.newBestTimeEasy,
+                bestTimeMedium = minesweeperUiState.bestTimeMedium,
+                newBestTimeMedium = minesweeperUiState.newBestTimeMedium,
+                bestTimeHard = minesweeperUiState.bestTimeHard,
+                newBestTimeHard = minesweeperUiState.newBestTimeHard
             )
         }
         composable(
