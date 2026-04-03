@@ -21,12 +21,12 @@ fun MinesweeperHome(
     navigateToEasyGame: () -> Unit,
     navigateToMediumGame: () -> Unit,
     navigateToHardGame: () -> Unit,
-    bestTimeEasy: Double?,
-    newBestTimeEasy: List<Double?>?,
-    bestTimeMedium: Double?,
-    newBestTimeMedium: List<Double?>?,
-    bestTimeHard: Double?,
-    newBestTimeHard: List<Double?>?,
+    historicalTimesEasy: Double?,
+    mostRecentTimeEasy: List<Double?>?,
+    historicalTimesMedium: Double?,
+    mostRecentTimeMedium: List<Double?>?,
+    historicalTimesHard: Double?,
+    mostRecentTimeHard: List<Double?>?,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -57,7 +57,7 @@ fun MinesweeperHome(
                     .weight(0.2f)
             )
             Text(
-                text = "Best time: $bestTimeEasy",
+                text = "Recent time: $historicalTimesEasy",
                 fontSize = 6.sp
             )
             Spacer(
@@ -65,7 +65,7 @@ fun MinesweeperHome(
                     .weight(0.2f)
             )
             Text(
-                text = "Best time: " + newBestTimeEasy?.toList().toString(),
+                text = "Historical times: " + mostRecentTimeEasy?.toList().toString(),
                 fontSize = 6.sp
             )
         }
@@ -93,7 +93,7 @@ fun MinesweeperHome(
                     .weight(0.2f)
             )
             Text(
-                text = "Best time: $bestTimeMedium",
+                text = "Recent time: $historicalTimesMedium",
                 fontSize = 6.sp
             )
             Spacer(
@@ -101,7 +101,7 @@ fun MinesweeperHome(
                     .weight(0.2f)
             )
             Text(
-                text = "Best time: " + newBestTimeMedium?.toList().toString(),
+                text = "Historical times: " + mostRecentTimeMedium?.toList().toString(),
                 fontSize = 6.sp
             )
         }
@@ -129,7 +129,7 @@ fun MinesweeperHome(
                     .weight(0.2f)
             )
             Text(
-                text = "Best time: $bestTimeHard",
+                text = "Recent time: $historicalTimesHard",
                 fontSize = 6.sp
             )
             Spacer(
@@ -137,7 +137,7 @@ fun MinesweeperHome(
                     .weight(0.2f)
             )
             Text(
-                text = "Best time: " + newBestTimeHard?.toList().toString(),
+                text = "Historical times: " + mostRecentTimeHard?.toList().toString(),
                 fontSize = 6.sp
             )
         }

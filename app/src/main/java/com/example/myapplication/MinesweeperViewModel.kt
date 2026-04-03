@@ -21,10 +21,10 @@ class MinesweeperViewModel: ViewModel() {
 
     fun resetGame() {
         if(_uiState.value.gameMode == gameModes.Easy) {
-            var allretainedTimesEasy: SnapshotStateList<Double?> = _uiState.value.newBestTimeEasy
+            var allretainedTimesEasy: SnapshotStateList<Double?> = _uiState.value.mostRecentTimeEasy
             var retainedTimeEasy: Double? = null
-            if(_uiState.value.bestTimeEasy != null && _uiState.value.won == true) {
-                retainedTimeEasy = _uiState.value.bestTimeEasy
+            if(_uiState.value.historicalTimesEasy != null && _uiState.value.won == true) {
+                retainedTimeEasy = _uiState.value.historicalTimesEasy
                 allretainedTimesEasy.add(retainedTimeEasy)
             } else {
                 retainedTimeEasy = null
@@ -38,18 +38,18 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Easy,
                 minesLeft = 10,
-                bestTimeEasy = retainedTimeEasy,
-                newBestTimeEasy = allretainedTimesEasy,
-                bestTimeMedium = _uiState.value.bestTimeMedium,
-                newBestTimeMedium = _uiState.value.newBestTimeMedium,
-                bestTimeHard = _uiState.value.bestTimeHard,
-                newBestTimeHard = _uiState.value.newBestTimeHard
+                historicalTimesEasy = retainedTimeEasy,
+                mostRecentTimeEasy = allretainedTimesEasy,
+                historicalTimesMedium = _uiState.value.historicalTimesMedium,
+                mostRecentTimeMedium = _uiState.value.mostRecentTimeMedium,
+                historicalTimesHard = _uiState.value.historicalTimesHard,
+                mostRecentTimeHard = _uiState.value.mostRecentTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Medium) {
-            var allretainedTimesMedium: SnapshotStateList<Double?> = _uiState.value.newBestTimeMedium
+            var allretainedTimesMedium: SnapshotStateList<Double?> = _uiState.value.mostRecentTimeMedium
             var retainedTimeMedium: Double? = null
-            if(_uiState.value.bestTimeMedium != null && _uiState.value.won == true) {
-                retainedTimeMedium = _uiState.value.bestTimeMedium
+            if(_uiState.value.historicalTimesMedium != null && _uiState.value.won == true) {
+                retainedTimeMedium = _uiState.value.historicalTimesMedium
                 allretainedTimesMedium.add(retainedTimeMedium)
             } else {
                 retainedTimeMedium = null
@@ -63,18 +63,18 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Medium,
                 minesLeft = 40,
-                bestTimeEasy = _uiState.value.bestTimeEasy,
-                newBestTimeEasy  = _uiState.value.newBestTimeEasy,
-                bestTimeMedium = retainedTimeMedium,
-                newBestTimeMedium = allretainedTimesMedium,
-                bestTimeHard = _uiState.value.bestTimeHard,
-                newBestTimeHard = _uiState.value.newBestTimeHard
+                historicalTimesEasy = _uiState.value.historicalTimesEasy,
+                mostRecentTimeEasy  = _uiState.value.mostRecentTimeEasy,
+                historicalTimesMedium = retainedTimeMedium,
+                mostRecentTimeMedium = allretainedTimesMedium,
+                historicalTimesHard = _uiState.value.historicalTimesHard,
+                mostRecentTimeHard = _uiState.value.mostRecentTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Hard) {
-            var allretainedTimesHard: SnapshotStateList<Double?> = _uiState.value.newBestTimeHard
+            var allretainedTimesHard: SnapshotStateList<Double?> = _uiState.value.mostRecentTimeHard
             var retainedTimeHard: Double? = null
-            if(_uiState.value.bestTimeHard != null && _uiState.value.won == true) {
-                retainedTimeHard = _uiState.value.bestTimeHard
+            if(_uiState.value.historicalTimesHard != null && _uiState.value.won == true) {
+                retainedTimeHard = _uiState.value.historicalTimesHard
                 allretainedTimesHard.add(retainedTimeHard)
             } else {
                 retainedTimeHard = null
@@ -88,12 +88,12 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Hard,
                 minesLeft = 99,
-                bestTimeEasy = _uiState.value.bestTimeEasy,
-                newBestTimeEasy = _uiState.value.newBestTimeEasy,
-                bestTimeMedium = _uiState.value.bestTimeMedium,
-                newBestTimeMedium = _uiState.value.newBestTimeMedium,
-                bestTimeHard = retainedTimeHard,
-                newBestTimeHard = allretainedTimesHard
+                historicalTimesEasy = _uiState.value.historicalTimesEasy,
+                mostRecentTimeEasy = _uiState.value.mostRecentTimeEasy,
+                historicalTimesMedium = _uiState.value.historicalTimesMedium,
+                mostRecentTimeMedium = _uiState.value.mostRecentTimeMedium,
+                historicalTimesHard = retainedTimeHard,
+                mostRecentTimeHard = allretainedTimesHard
             )
         }
 
@@ -776,32 +776,32 @@ class MinesweeperViewModel: ViewModel() {
         }
     }
 
-    fun updateBestTimeEasy(
+    fun updateHistoricalTimesEasy(
         timeToUpdate: Double?
     ) {
         _uiState.update {
             it.copy(
-                bestTimeEasy = timeToUpdate
+                historicalTimesEasy = timeToUpdate
             )
         }
     }
 
-    fun updateBestTimeMedium(
+    fun updateHistoricalTimesMedium(
         timeToUpdate: Double?
     ) {
         _uiState.update {
             it.copy(
-                bestTimeMedium = timeToUpdate
+                historicalTimesMedium = timeToUpdate
             )
         }
     }
 
-    fun updateBestTimeHard(
+    fun updateHistoricalTimesHard(
         timeToUpdate: Double?
     ) {
         _uiState.update {
             it.copy(
-                bestTimeHard = timeToUpdate
+                historicalTimesHard = timeToUpdate
             )
         }
     }

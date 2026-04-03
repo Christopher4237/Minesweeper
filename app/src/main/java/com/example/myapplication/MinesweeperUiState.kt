@@ -25,10 +25,10 @@ data class MinesweeperUiState(
     val won: Boolean? = null,
     val currentGameTimeInMillis: Double = 0.00,
     var gameMode: gameModes? = gameModes.Easy,
-    var bestTimeEasy: Double? = null,
-    var newBestTimeEasy: SnapshotStateList<Double?> = mutableStateListOf(),
-    var bestTimeMedium: Double? = null,
-    var newBestTimeMedium: SnapshotStateList<Double?> = mutableStateListOf(),
-    var bestTimeHard: Double? = null,
-    var newBestTimeHard: SnapshotStateList<Double?> = mutableStateListOf()
+    var historicalTimesEasy: Double? = null,
+    var mostRecentTimeEasy: SnapshotStateList<Double?> = mutableStateListOf(),
+    var historicalTimesMedium: Double? = null,
+    var mostRecentTimeMedium: SnapshotStateList<Double?> = mutableStateListOf(),
+    var historicalTimesHard: Double? = null,
+    var mostRecentTimeHard: SnapshotStateList<Double?> = mutableStateListOf()
 )

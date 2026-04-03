@@ -85,12 +85,12 @@ fun MinesweeperScreen(
                     minesweeperViewModel.resetGame()
                     navController.navigate(Screens.HardGame.name)
                 },
-                bestTimeEasy = minesweeperUiState.bestTimeEasy,
-                newBestTimeEasy = minesweeperUiState.newBestTimeEasy,
-                bestTimeMedium = minesweeperUiState.bestTimeMedium,
-                newBestTimeMedium = minesweeperUiState.newBestTimeMedium,
-                bestTimeHard = minesweeperUiState.bestTimeHard,
-                newBestTimeHard = minesweeperUiState.newBestTimeHard
+                historicalTimesEasy = minesweeperUiState.historicalTimesEasy,
+                mostRecentTimeEasy = minesweeperUiState.mostRecentTimeEasy,
+                historicalTimesMedium = minesweeperUiState.historicalTimesMedium,
+                mostRecentTimeMedium = minesweeperUiState.mostRecentTimeMedium,
+                mostRecentTimeHard = minesweeperUiState.mostRecentTimeHard,
+                historicalTimesHard = minesweeperUiState.historicalTimesHard
             )
         }
         composable(
@@ -129,14 +129,14 @@ fun MinesweeperScreen(
                     minesweeperViewModel.resetGame()
                 },
                 time = time,
-                updateBestTimeEasy = {
-                    minesweeperViewModel.updateBestTimeEasy(time)
+                updateHistoricalTimesEasy = {
+                    minesweeperViewModel.updateHistoricalTimesEasy(time)
                 },
-                updateBestTimeMedium = {
-                    minesweeperViewModel.updateBestTimeMedium(time)
+                updateHistoricalTimesMedium = {
+                    minesweeperViewModel.updateHistoricalTimesMedium(time)
                 },
-                updateBestTimeHard = {
-                    minesweeperViewModel.updateBestTimeHard(time)
+                updateHistoricalTimesHard = {
+                    minesweeperViewModel.updateHistoricalTimesHard(time)
                 },
                 onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
                 onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
@@ -179,14 +179,14 @@ fun MinesweeperScreen(
                     minesweeperViewModel.resetGame()
                 },
                 time = time,
-                updateBestTimeEasy = {
-                    minesweeperViewModel.updateBestTimeEasy(time)
+                updateHistoricalTimesEasy = {
+                    minesweeperViewModel.updateHistoricalTimesEasy(time)
                 },
-                updateBestTimeMedium = {
-                    minesweeperViewModel.updateBestTimeMedium(time)
+                updateHistoricalTimesMedium = {
+                    minesweeperViewModel.updateHistoricalTimesMedium(time)
                 },
-                updateBestTimeHard = {
-                    minesweeperViewModel.updateBestTimeHard(time)
+                updateHistoricalTimesHard = {
+                    minesweeperViewModel.updateHistoricalTimesHard(time)
                 },
                 onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
                 onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
@@ -229,14 +229,14 @@ fun MinesweeperScreen(
                     minesweeperViewModel.resetGame()
                 },
                 time = time,
-                updateBestTimeEasy = {
-                    minesweeperViewModel.updateBestTimeEasy(time)
+                updateHistoricalTimesEasy = {
+                    minesweeperViewModel.updateHistoricalTimesEasy(time)
                 },
-                updateBestTimeMedium = {
-                    minesweeperViewModel.updateBestTimeMedium(time)
+                updateHistoricalTimesMedium = {
+                    minesweeperViewModel.updateHistoricalTimesMedium(time)
                 },
-                updateBestTimeHard = {
-                    minesweeperViewModel.updateBestTimeHard(time)
+                updateHistoricalTimesHard = {
+                    minesweeperViewModel.updateHistoricalTimesHard(time)
                 },
                 onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
                 onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
