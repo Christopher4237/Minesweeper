@@ -21,10 +21,10 @@ class MinesweeperViewModel: ViewModel() {
 
     fun resetGame() {
         if(_uiState.value.gameMode == gameModes.Easy) {
-            var allretainedTimesEasy: SnapshotStateList<Double?> = _uiState.value.mostRecentTimeEasy
+            var allretainedTimesEasy: SnapshotStateList<Double?> = _uiState.value.historicalTimesEasy
             var retainedTimeEasy: Double? = null
             if(_uiState.value.historicalTimesEasy != null && _uiState.value.won == true) {
-                retainedTimeEasy = _uiState.value.historicalTimesEasy
+                retainedTimeEasy = _uiState.value.mostRecentTimeEasy
                 allretainedTimesEasy.add(retainedTimeEasy)
             } else {
                 retainedTimeEasy = null
@@ -38,18 +38,18 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Easy,
                 minesLeft = 10,
-                historicalTimesEasy = retainedTimeEasy,
-                mostRecentTimeEasy = allretainedTimesEasy,
+                historicalTimesEasy = allretainedTimesEasy,
+                mostRecentTimeEasy = retainedTimeEasy,
                 historicalTimesMedium = _uiState.value.historicalTimesMedium,
                 mostRecentTimeMedium = _uiState.value.mostRecentTimeMedium,
                 historicalTimesHard = _uiState.value.historicalTimesHard,
                 mostRecentTimeHard = _uiState.value.mostRecentTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Medium) {
-            var allretainedTimesMedium: SnapshotStateList<Double?> = _uiState.value.mostRecentTimeMedium
+            var allretainedTimesMedium: SnapshotStateList<Double?> = _uiState.value.historicalTimesMedium
             var retainedTimeMedium: Double? = null
             if(_uiState.value.historicalTimesMedium != null && _uiState.value.won == true) {
-                retainedTimeMedium = _uiState.value.historicalTimesMedium
+                retainedTimeMedium = _uiState.value.mostRecentTimeMedium
                 allretainedTimesMedium.add(retainedTimeMedium)
             } else {
                 retainedTimeMedium = null
@@ -65,16 +65,16 @@ class MinesweeperViewModel: ViewModel() {
                 minesLeft = 40,
                 historicalTimesEasy = _uiState.value.historicalTimesEasy,
                 mostRecentTimeEasy  = _uiState.value.mostRecentTimeEasy,
-                historicalTimesMedium = retainedTimeMedium,
-                mostRecentTimeMedium = allretainedTimesMedium,
+                historicalTimesMedium = allretainedTimesMedium,
+                mostRecentTimeMedium = retainedTimeMedium,
                 historicalTimesHard = _uiState.value.historicalTimesHard,
                 mostRecentTimeHard = _uiState.value.mostRecentTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Hard) {
-            var allretainedTimesHard: SnapshotStateList<Double?> = _uiState.value.mostRecentTimeHard
+            var allretainedTimesHard: SnapshotStateList<Double?> = _uiState.value.historicalTimesHard
             var retainedTimeHard: Double? = null
             if(_uiState.value.historicalTimesHard != null && _uiState.value.won == true) {
-                retainedTimeHard = _uiState.value.historicalTimesHard
+                retainedTimeHard = _uiState.value.mostRecentTimeHard
                 allretainedTimesHard.add(retainedTimeHard)
             } else {
                 retainedTimeHard = null
@@ -92,8 +92,8 @@ class MinesweeperViewModel: ViewModel() {
                 mostRecentTimeEasy = _uiState.value.mostRecentTimeEasy,
                 historicalTimesMedium = _uiState.value.historicalTimesMedium,
                 mostRecentTimeMedium = _uiState.value.mostRecentTimeMedium,
-                historicalTimesHard = retainedTimeHard,
-                mostRecentTimeHard = allretainedTimesHard
+                historicalTimesHard = allretainedTimesHard,
+                mostRecentTimeHard = retainedTimeHard
             )
         }
 
@@ -781,7 +781,7 @@ class MinesweeperViewModel: ViewModel() {
     ) {
         _uiState.update {
             it.copy(
-                historicalTimesEasy = timeToUpdate
+                mostRecentTimeEasy = timeToUpdate
             )
         }
     }
@@ -791,7 +791,7 @@ class MinesweeperViewModel: ViewModel() {
     ) {
         _uiState.update {
             it.copy(
-                historicalTimesMedium = timeToUpdate
+                mostRecentTimeMedium = timeToUpdate
             )
         }
     }
@@ -801,7 +801,7 @@ class MinesweeperViewModel: ViewModel() {
     ) {
         _uiState.update {
             it.copy(
-                historicalTimesHard = timeToUpdate
+                mostRecentTimeHard = timeToUpdate
             )
         }
     }
