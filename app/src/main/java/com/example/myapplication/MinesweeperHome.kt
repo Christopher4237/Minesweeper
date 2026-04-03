@@ -82,7 +82,7 @@ fun MinesweeperHome(
                     .weight(0.4f)
             )
             Button(
-                onClick = navigateToHardGame
+                onClick = navigateToMediumGame
             ) {
                 Text(
                     text = "Medium"
@@ -118,10 +118,10 @@ fun MinesweeperHome(
                     .weight(0.4f)
             )
             Button(
-                onClick = navigateToMediumGame
+                onClick = navigateToHardGame
             ) {
                 Text(
-                    text = "Medium"
+                    text = "Hard"
                 )
             }
             Spacer(

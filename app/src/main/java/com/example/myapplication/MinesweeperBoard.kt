@@ -66,6 +66,11 @@ fun MinesweeperBoard(
     resetGame: () -> Unit,
     time: Double?,
     updateBestTimeEasy: (Double?) -> Unit,
+    updateBestTimeMedium: (Double?) -> Unit,
+    updateBestTimeHard: (Double?) -> Unit,
+    onEasyMode: Boolean,
+    onMediumMode: Boolean,
+    onHardMode: Boolean,
     modifier: Modifier = Modifier
 ) {
 
@@ -251,7 +256,15 @@ fun MinesweeperBoard(
                 )
             }
             if (won == true) {
-                updateBestTimeEasy(time)
+                if(onEasyMode) {
+                    updateBestTimeEasy(time)
+                }
+                if(onMediumMode) {
+                    updateBestTimeMedium(time)
+                }
+                if(onHardMode) {
+                    updateBestTimeHard(time)
+                }
                 MinesweeperAlertDialog(
                     onDismissRequest = {
                         postGameAnalysisMode()
@@ -364,6 +377,11 @@ fun MinesweeperBoard2(
         postGameAnalysisMode = {},
         resetGame = {},
         time = 0.00,
-        updateBestTimeEasy = {}
+        updateBestTimeEasy = {},
+        updateBestTimeMedium = {},
+        updateBestTimeHard = {},
+        onEasyMode = false,
+        onMediumMode = false,
+        onHardMode = false
     )
 }

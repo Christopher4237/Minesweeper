@@ -131,7 +131,16 @@ fun MinesweeperScreen(
                 time = time,
                 updateBestTimeEasy = {
                     minesweeperViewModel.updateBestTimeEasy(time)
-                }
+                },
+                updateBestTimeMedium = {
+                    minesweeperViewModel.updateBestTimeMedium(time)
+                },
+                updateBestTimeHard = {
+                    minesweeperViewModel.updateBestTimeHard(time)
+                },
+                onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
+                onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
+                onHardMode = minesweeperUiState.gameMode == gameModes.Hard
             )
         }
         composable(
@@ -172,7 +181,16 @@ fun MinesweeperScreen(
                 time = time,
                 updateBestTimeEasy = {
                     minesweeperViewModel.updateBestTimeEasy(time)
-                }
+                },
+                updateBestTimeMedium = {
+                    minesweeperViewModel.updateBestTimeMedium(time)
+                },
+                updateBestTimeHard = {
+                    minesweeperViewModel.updateBestTimeHard(time)
+                },
+                onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
+                onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
+                onHardMode = minesweeperUiState.gameMode == gameModes.Hard
             )
         }
         composable(
@@ -213,7 +231,16 @@ fun MinesweeperScreen(
                 time = time,
                 updateBestTimeEasy = {
                     minesweeperViewModel.updateBestTimeEasy(time)
-                }
+                },
+                updateBestTimeMedium = {
+                    minesweeperViewModel.updateBestTimeMedium(time)
+                },
+                updateBestTimeHard = {
+                    minesweeperViewModel.updateBestTimeHard(time)
+                },
+                onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
+                onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
+                onHardMode = minesweeperUiState.gameMode == gameModes.Hard
             )
         }
     }

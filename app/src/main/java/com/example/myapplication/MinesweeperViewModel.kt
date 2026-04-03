@@ -39,7 +39,11 @@ class MinesweeperViewModel: ViewModel() {
                 gameMode = gameModes.Easy,
                 minesLeft = 10,
                 bestTimeEasy = retainedTimeEasy,
-                newBestTimeEasy = allretainedTimesEasy
+                newBestTimeEasy = allretainedTimesEasy,
+                bestTimeMedium = _uiState.value.bestTimeMedium,
+                newBestTimeMedium = _uiState.value.newBestTimeMedium,
+                bestTimeHard = _uiState.value.bestTimeHard,
+                newBestTimeHard = _uiState.value.newBestTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Medium) {
             var allretainedTimesMedium: SnapshotStateList<Double?> = _uiState.value.newBestTimeMedium
@@ -59,8 +63,12 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Medium,
                 minesLeft = 40,
+                bestTimeEasy = _uiState.value.bestTimeEasy,
+                newBestTimeEasy  = _uiState.value.newBestTimeEasy,
                 bestTimeMedium = retainedTimeMedium,
-                newBestTimeMedium = allretainedTimesMedium
+                newBestTimeMedium = allretainedTimesMedium,
+                bestTimeHard = _uiState.value.bestTimeHard,
+                newBestTimeHard = _uiState.value.newBestTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Hard) {
             var allretainedTimesHard: SnapshotStateList<Double?> = _uiState.value.newBestTimeHard
@@ -80,6 +88,10 @@ class MinesweeperViewModel: ViewModel() {
                 currentGameTimeInMillis = 0.00,
                 gameMode = gameModes.Hard,
                 minesLeft = 99,
+                bestTimeEasy = _uiState.value.bestTimeEasy,
+                newBestTimeEasy = _uiState.value.newBestTimeEasy,
+                bestTimeMedium = _uiState.value.bestTimeMedium,
+                newBestTimeMedium = _uiState.value.newBestTimeMedium,
                 bestTimeHard = retainedTimeHard,
                 newBestTimeHard = allretainedTimesHard
             )
@@ -770,6 +782,26 @@ class MinesweeperViewModel: ViewModel() {
         _uiState.update {
             it.copy(
                 bestTimeEasy = timeToUpdate
+            )
+        }
+    }
+
+    fun updateBestTimeMedium(
+        timeToUpdate: Double?
+    ) {
+        _uiState.update {
+            it.copy(
+                bestTimeMedium = timeToUpdate
+            )
+        }
+    }
+
+    fun updateBestTimeHard(
+        timeToUpdate: Double?
+    ) {
+        _uiState.update {
+            it.copy(
+                bestTimeHard = timeToUpdate
             )
         }
     }
