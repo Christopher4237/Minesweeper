@@ -21,12 +21,12 @@ fun MinesweeperHome(
     navigateToEasyGame: () -> Unit,
     navigateToMediumGame: () -> Unit,
     navigateToHardGame: () -> Unit,
-    historicalTimesEasy: List<Double?>?,
     mostRecentTimeEasy: Double?,
-    historicalTimesMedium: List<Double?>?,
+    bestTimeEasy: Double?,
     mostRecentTimeMedium: Double?,
-    historicalTimesHard: List<Double?>?,
+    bestTimeMedium: Double?,
     mostRecentTimeHard: Double?,
+    bestTimeHard: Double?,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -38,6 +38,7 @@ fun MinesweeperHome(
                 .weight(0.4f)
         )
         Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
         ) {
@@ -56,24 +57,29 @@ fun MinesweeperHome(
                 modifier = Modifier
                     .weight(0.2f)
             )
-            Text(
-                text = "Recent time: $mostRecentTimeEasy",
-                fontSize = 6.sp
-            )
+            if(mostRecentTimeEasy!= null) {
+                Text(
+                    text = "Recent time: $mostRecentTimeEasy",
+                    fontSize = 12.sp
+                )
+            }
             Spacer(
                 modifier = Modifier
                     .weight(0.2f)
             )
-            Text(
-                text = "Historical times: " + historicalTimesEasy?.toList().toString(),
-                fontSize = 6.sp
-            )
+            if(bestTimeEasy!= null) {
+                Text(
+                    text = "Best time: $bestTimeEasy",
+                    fontSize = 12.sp
+                )
+            }
         }
         Spacer(
             modifier = Modifier
                 .weight(0.1f)
         )
         Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
         ) {
@@ -92,24 +98,29 @@ fun MinesweeperHome(
                 modifier = Modifier
                     .weight(0.2f)
             )
-            Text(
-                text = "Recent time: $mostRecentTimeMedium",
-                fontSize = 6.sp
-            )
+            if(mostRecentTimeMedium!= null) {
+                Text(
+                    text = "Recent time: $mostRecentTimeMedium",
+                    fontSize = 12.sp
+                )
+            }
             Spacer(
                 modifier = Modifier
                     .weight(0.2f)
             )
-            Text(
-                text = "Historical times: " + historicalTimesMedium?.toList().toString(),
-                fontSize = 6.sp
-            )
+            if(bestTimeMedium!= null) {
+                Text(
+                    text = "Best time: $bestTimeMedium",
+                    fontSize = 12.sp
+                )
+            }
         }
         Spacer(
             modifier = Modifier
                 .weight(0.1f)
         )
         Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
         ) {
@@ -128,18 +139,22 @@ fun MinesweeperHome(
                 modifier = Modifier
                     .weight(0.2f)
             )
-            Text(
-                text = "Recent time: $mostRecentTimeHard",
-                fontSize = 6.sp
-            )
+            if(mostRecentTimeHard!= null) {
+                Text(
+                    text = "Recent time: $mostRecentTimeHard",
+                    fontSize = 12.sp
+                )
+            }
             Spacer(
                 modifier = Modifier
                     .weight(0.2f)
             )
-            Text(
-                text = "Historical times: " + historicalTimesHard?.toList().toString(),
-                fontSize = 6.sp
-            )
+            if(bestTimeHard!= null) {
+                Text(
+                    text = "Best time: $bestTimeHard",
+                    fontSize = 12.sp
+                )
+            }
         }
         Spacer(
             modifier = Modifier

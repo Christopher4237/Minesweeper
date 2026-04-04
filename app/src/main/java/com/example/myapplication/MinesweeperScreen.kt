@@ -85,12 +85,12 @@ fun MinesweeperScreen(
                     minesweeperViewModel.resetGame()
                     navController.navigate(Screens.HardGame.name)
                 },
-                historicalTimesEasy = minesweeperUiState.historicalTimesEasy,
                 mostRecentTimeEasy = minesweeperUiState.mostRecentTimeEasy,
-                historicalTimesMedium = minesweeperUiState.historicalTimesMedium,
+                bestTimeEasy = minesweeperUiState.bestTimeEasy,
                 mostRecentTimeMedium = minesweeperUiState.mostRecentTimeMedium,
+                bestTimeMedium = minesweeperUiState.bestTimeMedium,
                 mostRecentTimeHard = minesweeperUiState.mostRecentTimeHard,
-                historicalTimesHard = minesweeperUiState.historicalTimesHard
+                bestTimeHard = minesweeperUiState.bestTimeHard
             )
         }
         composable(
@@ -140,7 +140,8 @@ fun MinesweeperScreen(
                 },
                 onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
                 onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
-                onHardMode = minesweeperUiState.gameMode == gameModes.Hard
+                onHardMode = minesweeperUiState.gameMode == gameModes.Hard,
+                gameStarted = !minesweeperUiState.isRevealed.all { it == false }
             )
         }
         composable(
@@ -190,7 +191,8 @@ fun MinesweeperScreen(
                 },
                 onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
                 onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
-                onHardMode = minesweeperUiState.gameMode == gameModes.Hard
+                onHardMode = minesweeperUiState.gameMode == gameModes.Hard,
+                gameStarted = !minesweeperUiState.isRevealed.all { it == false }
             )
         }
         composable(
@@ -240,7 +242,8 @@ fun MinesweeperScreen(
                 },
                 onEasyMode = minesweeperUiState.gameMode == gameModes.Easy,
                 onMediumMode = minesweeperUiState.gameMode == gameModes.Medium,
-                onHardMode = minesweeperUiState.gameMode == gameModes.Hard
+                onHardMode = minesweeperUiState.gameMode == gameModes.Hard,
+                gameStarted = !minesweeperUiState.isRevealed.all { it == false }
             )
         }
     }

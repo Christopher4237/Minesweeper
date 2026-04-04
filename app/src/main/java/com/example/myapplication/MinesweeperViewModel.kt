@@ -23,11 +23,15 @@ class MinesweeperViewModel: ViewModel() {
         if(_uiState.value.gameMode == gameModes.Easy) {
             var allretainedTimesEasy: SnapshotStateList<Double?> = _uiState.value.historicalTimesEasy
             var retainedTimeEasy: Double? = null
+            var bestTimeEasy: Double? = null
             if(_uiState.value.historicalTimesEasy != null && _uiState.value.won == true) {
                 retainedTimeEasy = _uiState.value.mostRecentTimeEasy
                 allretainedTimesEasy.add(retainedTimeEasy)
             } else {
                 retainedTimeEasy = null
+            }
+            if(allretainedTimesEasy.isNotEmpty()) {
+                bestTimeEasy = allretainedTimesEasy.filterNotNull().min()
             }
             _uiState.value = MinesweeperUiState(
                 columns = 8,
@@ -40,19 +44,26 @@ class MinesweeperViewModel: ViewModel() {
                 minesLeft = 10,
                 historicalTimesEasy = allretainedTimesEasy,
                 mostRecentTimeEasy = retainedTimeEasy,
+                bestTimeEasy = bestTimeEasy,
                 historicalTimesMedium = _uiState.value.historicalTimesMedium,
                 mostRecentTimeMedium = _uiState.value.mostRecentTimeMedium,
+                bestTimeMedium = _uiState.value.bestTimeMedium,
                 historicalTimesHard = _uiState.value.historicalTimesHard,
-                mostRecentTimeHard = _uiState.value.mostRecentTimeHard
+                mostRecentTimeHard = _uiState.value.mostRecentTimeHard,
+                bestTimeHard = _uiState.value.bestTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Medium) {
             var allretainedTimesMedium: SnapshotStateList<Double?> = _uiState.value.historicalTimesMedium
             var retainedTimeMedium: Double? = null
+            var bestTimeMedium: Double? = null
             if(_uiState.value.historicalTimesMedium != null && _uiState.value.won == true) {
                 retainedTimeMedium = _uiState.value.mostRecentTimeMedium
                 allretainedTimesMedium.add(retainedTimeMedium)
             } else {
                 retainedTimeMedium = null
+            }
+            if(allretainedTimesMedium.isNotEmpty()) {
+                bestTimeMedium = allretainedTimesMedium.filterNotNull().min()
             }
             _uiState.value = MinesweeperUiState(
                 columns = 16,
@@ -65,19 +76,26 @@ class MinesweeperViewModel: ViewModel() {
                 minesLeft = 40,
                 historicalTimesEasy = _uiState.value.historicalTimesEasy,
                 mostRecentTimeEasy  = _uiState.value.mostRecentTimeEasy,
+                bestTimeEasy = _uiState.value.bestTimeEasy,
                 historicalTimesMedium = allretainedTimesMedium,
                 mostRecentTimeMedium = retainedTimeMedium,
+                bestTimeMedium = bestTimeMedium,
                 historicalTimesHard = _uiState.value.historicalTimesHard,
-                mostRecentTimeHard = _uiState.value.mostRecentTimeHard
+                mostRecentTimeHard = _uiState.value.mostRecentTimeHard,
+                bestTimeHard = _uiState.value.bestTimeHard
             )
         } else if(_uiState.value.gameMode == gameModes.Hard) {
             var allretainedTimesHard: SnapshotStateList<Double?> = _uiState.value.historicalTimesHard
             var retainedTimeHard: Double? = null
+            var bestTimeHard: Double? = null
             if(_uiState.value.historicalTimesHard != null && _uiState.value.won == true) {
                 retainedTimeHard = _uiState.value.mostRecentTimeHard
                 allretainedTimesHard.add(retainedTimeHard)
             } else {
                 retainedTimeHard = null
+            }
+            if(allretainedTimesHard.isNotEmpty()) {
+                bestTimeHard = allretainedTimesHard.filterNotNull().min()
             }
             _uiState.value = MinesweeperUiState(
                 columns = 30,
@@ -90,10 +108,13 @@ class MinesweeperViewModel: ViewModel() {
                 minesLeft = 99,
                 historicalTimesEasy = _uiState.value.historicalTimesEasy,
                 mostRecentTimeEasy = _uiState.value.mostRecentTimeEasy,
+                bestTimeEasy = _uiState.value.bestTimeEasy,
                 historicalTimesMedium = _uiState.value.historicalTimesMedium,
                 mostRecentTimeMedium = _uiState.value.mostRecentTimeMedium,
+                bestTimeMedium = _uiState.value.bestTimeMedium,
                 historicalTimesHard = allretainedTimesHard,
-                mostRecentTimeHard = retainedTimeHard
+                mostRecentTimeHard = retainedTimeHard,
+                bestTimeHard = bestTimeHard
             )
         }
 

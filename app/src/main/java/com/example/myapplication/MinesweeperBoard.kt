@@ -71,6 +71,7 @@ fun MinesweeperBoard(
     onEasyMode: Boolean,
     onMediumMode: Boolean,
     onHardMode: Boolean,
+    gameStarted: Boolean,
     modifier: Modifier = Modifier
 ) {
 
@@ -92,10 +93,12 @@ fun MinesweeperBoard(
                 modifier = Modifier
                     .weight(1f)
             )
-            Text(
-                text = "Time: " + String.format("%.1f", time).toDouble(),
-                fontSize = 12.sp
-            )
+            if(gameStarted) {
+                Text(
+                    text = "Time: " + String.format("%.1f", time).toDouble(),
+                    fontSize = 12.sp
+                )
+            }
             Spacer(
                 modifier = Modifier
                     .weight(1f)
@@ -382,6 +385,7 @@ fun MinesweeperBoard2(
         updateHistoricalTimesHard = {},
         onEasyMode = false,
         onMediumMode = false,
-        onHardMode = false
+        onHardMode = false,
+        gameStarted = false
     )
 }

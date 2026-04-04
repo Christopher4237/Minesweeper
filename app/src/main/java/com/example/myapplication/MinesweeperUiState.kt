@@ -27,8 +27,11 @@ data class MinesweeperUiState(
     var gameMode: gameModes? = gameModes.Easy,
     var historicalTimesEasy: SnapshotStateList<Double?> = mutableStateListOf(),
     var mostRecentTimeEasy: Double? = null,
+    val bestTimeEasy: Double? = null,
     var historicalTimesMedium: SnapshotStateList<Double?> = mutableStateListOf(),
     var mostRecentTimeMedium: Double? = null,
+    val bestTimeMedium: Double? = null,
     var historicalTimesHard: SnapshotStateList<Double?> = mutableStateListOf(),
-    var mostRecentTimeHard: Double? = null
+    var mostRecentTimeHard: Double? = null,
+    val bestTimeHard: Double? = null
 )
