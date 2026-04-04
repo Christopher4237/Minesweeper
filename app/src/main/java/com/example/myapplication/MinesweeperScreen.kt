@@ -46,10 +46,10 @@ fun MinesweeperScreen(
 
     //var gameMode by remember { mutableStateOf(minesweeperUiState.gameMode) }
 
-    LaunchedEffect(key1 = time) {
+    LaunchedEffect(Unit) {
         while(minesweeperUiState.isGameOver != true) {
-            delay(1000L)
-            time++
+            delay(100L)
+            time += 0.1
         }
 
     }
