@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
+@SuppressLint("DefaultLocale")
 @Composable
 fun MinesweeperHome(
     navigateToEasyGame: () -> Unit,
@@ -59,7 +61,7 @@ fun MinesweeperHome(
             )
             if(mostRecentTimeEasy!= null) {
                 Text(
-                    text = "Recent time: $mostRecentTimeEasy",
+                    text = "Recent time: " + String.format("%.1f", mostRecentTimeEasy).toDouble(),
                     fontSize = 12.sp
                 )
             }
@@ -69,7 +71,7 @@ fun MinesweeperHome(
             )
             if(bestTimeEasy!= null) {
                 Text(
-                    text = "Best time: $bestTimeEasy",
+                    text = "Best time: " + String.format("%.1f", bestTimeEasy).toDouble(),
                     fontSize = 12.sp
                 )
             }

@@ -51,7 +51,6 @@ fun MinesweeperScreen(
             delay(100L)
             time += 0.1
         }
-
     }
 
     LaunchedEffect(

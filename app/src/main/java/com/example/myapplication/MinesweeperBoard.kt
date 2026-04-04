@@ -277,7 +277,7 @@ fun MinesweeperBoard(
                         resetGame()
                     },
                     text = { Text("Congrats! All mines have been defused." +
-                            "Your time was $time") }
+                            "Your time was " + String.format("%.1f", time).toDouble()) }
                 )
             }
         }
@@ -350,7 +350,7 @@ fun MinesweeperBoard(
             }
         }
         Text(
-            text = time.toString()
+            text = String.format("%.1f", time).toDouble().toString()
         )
     }
 }
