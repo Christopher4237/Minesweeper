@@ -350,7 +350,8 @@ fun MinesweeperBoard(
             }
         }
         Text(
-            text = String.format("%.1f", time).toDouble().toString()
+            //text = String.format("%.1f", time).toDouble().toString()
+            text = time.toString()
         )
     }
 }

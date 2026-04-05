@@ -23,7 +23,7 @@ data class MinesweeperUiState(
     val suspectedMines: SnapshotStateList<Int> = mutableStateListOf(),
     val minesLeft: Int = 99,
     val won: Boolean? = null,
-    val currentGameTimeInMillis: Double = 0.00,
+    //val currentGameTimeInMillis: Double = 0.00,
     var gameMode: gameModes? = gameModes.Easy,
     var historicalTimesEasy: SnapshotStateList<Double?> = mutableStateListOf(),
     var mostRecentTimeEasy: Double? = null,

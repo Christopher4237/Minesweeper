@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,16 +43,19 @@ fun MinesweeperScreen(
     val minesweeperUiState by minesweeperViewModel.uiState.collectAsState()
 
 
-    var time by remember { mutableStateOf(minesweeperUiState.currentGameTimeInMillis) }
+    var time by remember { mutableStateOf(0.0) }
 
-    //var gameMode by remember { mutableStateOf(minesweeperUiState.gameMode) }
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(
+        //key1 = Unit,
+        key1 = time
+    ) {
         while(minesweeperUiState.isGameOver != true) {
             delay(100L)
-            time += 0.1
+            time++
         }
     }
+
 
     LaunchedEffect(
         key1 = minesweeperUiState.gameMode,
