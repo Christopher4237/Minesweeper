@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -14,6 +15,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -160,7 +163,30 @@ fun MinesweeperHome(
         }
         Spacer(
             modifier = Modifier
-                .weight(0.4f)
+                .weight(0.1f)
+        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            Spacer(
+                modifier = Modifier
+                    .weight(0.1f)
+            )
+            Text(
+                textAlign = TextAlign.Center,
+                text = "Instructions: number represents the number of mines around that cell (includes diagonals).\n" +
+                        "To highlight a suspected mine hold down a cell (this will highlight the cell yellow)",
+                fontSize = 12.sp
+            )
+            Spacer(
+                modifier = Modifier
+                    .weight(0.1f)
+            )
+        }
+        Spacer(
+            modifier = Modifier
+                .weight(0.1f)
         )
     }
 }

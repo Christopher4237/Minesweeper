@@ -221,7 +221,9 @@ fun MinesweeperBoard(
                                 text = "",
                                 fontSize = 6.sp,
                                 modifier = Modifier
-                                    .background(Color.Red)
+                                    .background(Color.Green)
+                                    //Used for debugging purposes
+                                    //.background(Color.Red)
                                     .fillMaxSize()
                             )
                         } else if (item in suspectedMines) {
@@ -349,10 +351,12 @@ fun MinesweeperBoard(
                 )
             }
         }
+        /*
         Text(
             //text = String.format("%.1f", time).toDouble().toString()
             text = time.toString()
         )
+         */
     }
 }
 
