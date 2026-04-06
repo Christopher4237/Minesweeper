@@ -20,6 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.delay
+import kotlin.math.round
 
 enum class Screens {
     Home,
@@ -45,14 +46,14 @@ fun MinesweeperScreen(
 
     var time by remember { mutableStateOf(0.0) }
 
+    var recompositionChange by remember { mutableStateOf(0) }
 
-    LaunchedEffect(
-        //key1 = Unit,
-        key1 = time
-    ) {
+
+    LaunchedEffect(key1 = recompositionChange) {
+        val intervalMs = 100L
         while(minesweeperUiState.isGameOver != true) {
-            delay(100L)
-            time++
+            delay(intervalMs)
+            time += 0.1
         }
     }
 
@@ -63,6 +64,7 @@ fun MinesweeperScreen(
         key3 = minesweeperUiState.isRevealed.all { it == false }
     ) {
         time = 0.00
+        recompositionChange++
     }
 
     NavHost(
